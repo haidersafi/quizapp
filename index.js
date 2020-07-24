@@ -3,6 +3,7 @@ var questionCount=0;
 var isscore=0;
 var finish=document.getElementById("finish-btn");
 
+
 var question=document.getElementById("question-container");
 var ques=document.getElementById("question");
 var answer1=document.getElementById("answer1");
@@ -15,6 +16,11 @@ var answer;
 var start=document.getElementById("start-btn");
 var next=document.getElementById("next-btn");
 var reset=document.getElementById("reset-btn");
+var body=document.getElementById("container-body");
+body.classList.add("body-netural");
+body.classList.remove("body-correct")
+        body.classList.remove("body-wrong");
+
 reset.classList.add("hide");
 finish.addEventListener("click",function(){
     finish.classList.add("hide");
@@ -50,14 +56,21 @@ reset.addEventListener("click",function(){
 function selectNext(){
     questionCount++;
     if (questionCount>10)
-    {question.classList.add("hide");
+    
+    {
+        body.classList.remove("body-wrong");
+        body.classList.remove("body-correct");
+        body.classList.add("body-neutral")
+        question.classList.add("hide");
         start.classList.add("hide");
         next.classList.add("hide");
 finish.classList.remove("hide");
 
     }
     else{
-      
+        body.classList.add("body-netural");
+        body.classList.remove("body-correct")
+                body.classList.remove("body-wrong");
 showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 }
@@ -78,6 +91,10 @@ answer4.addEventListener("click",selectAnswer);
 
 function selectAnswer(){
 if (event.target.innerHTML==shuffledQuestions[currentQuestionIndex].correct){
+   
+    body.classList.remove("body-netural");
+body.classList.add("body-correct")
+        body.classList.remove("body-wrong");
     isscore++;
     event.target.classList.add("correct")
     for (var i=1;i<5;i++){
@@ -88,8 +105,10 @@ if (event.target.innerHTML==shuffledQuestions[currentQuestionIndex].correct){
 }
 }
 else{
-   
-        
+body.classList.remove("body-netural");
+body.classList.remove("body-correct")
+        body.classList.add("body-wrong");
+        console.log(body.classList);
         for (var i=1;i<5;i++){
             answer="answer"+i;
             if (document.getElementById(answer).innerHTML==shuffledQuestions[currentQuestionIndex].correct){
@@ -111,6 +130,9 @@ function nextQuestion(){
     answer2.classList.remove("wrong")
     answer3.classList.remove("wrong")
     answer4.classList.remove("wrong")
+    body.classList.add("body-netural");
+    body.classList.remove("body-correct")
+            body.classList.remove("body-wrong");
   
    answer1.innerHTML="";
    answer2.innerHTML="";
