@@ -2,6 +2,7 @@
 var questionCount=0;
 var isscore=0;
 var finish=document.getElementById("finish-btn");
+var j=0
 
 
 var question=document.getElementById("question-container");
@@ -72,6 +73,7 @@ finish.classList.remove("hide");
         body.classList.remove("body-correct")
                 body.classList.remove("body-wrong");
 showQuestion(shuffledQuestions[currentQuestionIndex])
+shuffledQuestion();
 }
 }
 
@@ -138,8 +140,8 @@ function nextQuestion(){
    answer2.innerHTML="";
    answer3.innerHTML="";
    answer4.innerHTML="";
-   shuffledQuestions=questions.sort(()=>Math.random()-.5)
-currentQuestionIndex=0;
+//    shuffledQuestions=questions.sort(()=>Math.random()-.5)
+currentQuestionIndex++;
 
 
   selectNext();
