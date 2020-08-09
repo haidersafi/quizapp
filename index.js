@@ -73,12 +73,12 @@ finish.classList.remove("hide");
         body.classList.remove("body-correct")
                 body.classList.remove("body-wrong");
 showQuestion(shuffledQuestions[currentQuestionIndex])
-shuffledQuestion();
+
 }
 }
 
 function showQuestion(quest){
-    console.log(isscore);
+    
 ques.innerHTML=quest.question;
 answer1.innerHTML=quest.a;
 answer2.innerHTML=quest.b;
@@ -88,6 +88,7 @@ answer1.addEventListener("click",selectAnswer);
 answer2.addEventListener("click",selectAnswer);
 answer3.addEventListener("click",selectAnswer);
 answer4.addEventListener("click",selectAnswer);
+
 }
 
 
@@ -120,7 +121,9 @@ body.classList.remove("body-correct")
             }
         }
 }
+console.log('abc',currentQuestionIndex)
 
+currentQuestionIndex++;
 }
 
 function nextQuestion(){
@@ -141,7 +144,6 @@ function nextQuestion(){
    answer3.innerHTML="";
    answer4.innerHTML="";
 //    shuffledQuestions=questions.sort(()=>Math.random()-.5)
-currentQuestionIndex++;
 
 
   selectNext();
